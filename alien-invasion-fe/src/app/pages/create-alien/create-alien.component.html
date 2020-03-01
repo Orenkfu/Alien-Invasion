@@ -1,0 +1,50 @@
+<section class="form__wrapper">
+    <form #f="ngForm" class="form" (ngSubmit)="create(f.value)">
+        <div class="">
+
+            <mat-form-field class="form__field">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Ex. Plutonius Maximus">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Alien Type</mat-label>
+                <mat-select (focus)="typeChanged(f.value.type)" [(ngModel)]="type" name="type">
+                    <mat-option *ngFor="let a of alienTypes" [value]="a">
+                        {{ a | titlecase }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div *ngIf="f.value.type === 'Commander'">
+            <mat-form-field>
+                <mat-label>Vehicle</mat-label>
+                <mat-select ngModel name="vehicle">
+                    <mat-option *ngFor="let v of ['Bird scooter']" [value]="v">
+                        {{ v | titlecase }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div *ngIf="f.value.type === 'Warrior'">
+            <mat-form-field>
+                <mat-label>Weapon</mat-label>
+                <mat-select ngModel name="weapon">
+                    <mat-option *ngFor="let w of ['Water gun', 'Pepper spray', 'Chopsticks']" [value]="w">
+                        {{ w | titlecase }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div *ngIf="f.value.type === 'Commander Chief'" >
+            <mat-form-field>
+                <mat-label>Vehicle</mat-label>
+                <mat-select ngModel name="vehicle">
+                    <mat-option *ngFor="let v of ['Bird scooter']" [value]="v">
+                        {{ v | titlecase }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+    </form>
+</section>

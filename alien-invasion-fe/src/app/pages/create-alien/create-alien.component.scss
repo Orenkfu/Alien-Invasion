@@ -1,0 +1,16 @@
+@import "../../../scss/global-variables";
+.form {
+    &__title {
+
+    }
+    &__wrapper {
+        border-radius: 5px;
+        margin:  20% 20%;
+        border: 2px $color-secondary solid;
+        display: inline-block;
+        padding: 5rem;
+    }
+    &__field {
+        padding: 2rem;
+    }
+}

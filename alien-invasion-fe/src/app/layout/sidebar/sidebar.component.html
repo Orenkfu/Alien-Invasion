@@ -1,0 +1,13 @@
+<mat-drawer-container autosize class=" sidebar">
+        <mat-drawer #drawer mode="side" 
+        class="sidebar__drawer mat-elevation-z8" opened>
+        <img class="sidebar__drawer__logo logo" 
+        src="../../../assets/logo.png" alt="" srcset="">
+        <div class="mt-5">
+            <nav-menu></nav-menu>
+        </div>
+        </mat-drawer>
+        <mat-drawer-content class="alien-light sidebar__content">
+                <router-outlet></router-outlet>
+            </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,14 @@
+@import "../../../../scss/global-variables";
+.auth {
+    &__character-creation {
+        &__form {
+            text-align: left;
+            border-radius: 3px;
+            min-width: 50rem;
+            min-height: 40rem;
+            display: inline-block;
+            padding: 3rem;
+            border: 3px $color-secondary-dark solid;
+        }
+    }
+}

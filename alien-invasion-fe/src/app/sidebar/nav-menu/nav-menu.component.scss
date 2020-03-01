@@ -1,0 +1,13 @@
+@import "../../../scss/global-variables";
+.route {
+    &__item {
+        padding: 2rem;
+    }
+    color: $color-primary;
+    font-weight: 700;
+    letter-spacing: 3px;
+    height: 3rem;
+    &--active {
+        color: $color-primary-light;
+    }
+}
