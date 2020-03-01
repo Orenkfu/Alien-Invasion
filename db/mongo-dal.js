@@ -1,4 +1,4 @@
-const config = require('../config');
+const config = require('../bootstrap/config');
 const mongoose = require('mongoose');
 
 const { Alien } = require('../models/alien');
@@ -12,6 +12,12 @@ const { Alien } = require('../models/alien');
      return Alien.create(alien_template);
  } 
 
+ module.exports.getAllAliens = () => {
+     return Alien.find();
+ }
+ module.exports.removeAlien = (id) => {
+     //return Alien
+ }
  module.exports.findAliensByType = (type) => {
      return Alien.find({
          type: type
