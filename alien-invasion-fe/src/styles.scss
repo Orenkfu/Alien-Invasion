@@ -6,7 +6,7 @@
 
 @include mat-core();
 
-$alien-invasion-fe-primary: mat-palette($mat-indigo);
+$alien-invasion-fe-primary: mat-palette($mat-teal);
 $alien-invasion-fe-accent: mat-palette($mat-pink, A200, A100, A400);
 $alien-invasion-fe-warn: mat-palette($mat-red);
 $alien-invasion-fe-theme: mat-light-theme($alien-invasion-fe-primary, $alien-invasion-fe-accent, $alien-invasion-fe-warn);
@@ -27,7 +27,7 @@ html {
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.7;
   color: #000;
   box-sizing: border-box; 
@@ -39,4 +39,7 @@ html, body { height: 100%; }
 
 .mat-select-panel {
     max-width: 740px !important;
+}
+input {
+  background-color: transparent;
 }

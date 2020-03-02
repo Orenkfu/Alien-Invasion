@@ -1,13 +1,13 @@
 .heading-primary {
     color: $color-black; 
-    text-transform: uppercase;
+    text-transform: capitalize;
     backface-visibility: hidden;
     &--main {
     display: block;
     font-size: 7rem;
     font-weight: 400;
     padding-left: 1rem;
-    letter-spacing: 4.1rem;
+    letter-spacing: 1.6rem;
     animation-name: moveInLeft;
     animation-duration: 4s;
     }

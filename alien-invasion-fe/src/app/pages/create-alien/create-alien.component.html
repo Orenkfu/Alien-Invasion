@@ -1,50 +1,79 @@
 <section class="form__wrapper">
+    <h2 class="form__heading">
+        Create Alien
+    </h2>
+    <p class="form__p">
+        Use the form interface to generate additional aliens. <br>The alien type being the most important property - as
+        it alters
+        the other properties of the form.
+    </p>
     <form #f="ngForm" class="form" (ngSubmit)="create(f.value)">
-        <div class="">
-
-            <mat-form-field class="form__field">
-                <mat-label>Name</mat-label>
-                <input matInput placeholder="Ex. Plutonius Maximus">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Alien Type</mat-label>
-                <mat-select (focus)="typeChanged(f.value.type)" [(ngModel)]="type" name="type">
-                    <mat-option *ngFor="let a of alienTypes" [value]="a">
-                        {{ a | titlecase }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
+        <div class="row">
+            <div class="col-md-5">
+                <mat-form-field class="form__field">
+                    <mat-label>Name</mat-label>
+                    <input matInput ngModel name="name" placeholder="Ex. Plutonius Maximus">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field>
+                    <mat-label>Alien Type</mat-label>
+                    <mat-select [(ngModel)]="type" name="type">
+                        <mat-option *ngFor="let a of alienTypes" [value]="a">
+                            {{ a | titlecase }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
         </div>
-        <div *ngIf="f.value.type === 'Commander'">
-            <mat-form-field>
-                <mat-label>Vehicle</mat-label>
-                <mat-select ngModel name="vehicle">
-                    <mat-option *ngFor="let v of ['Bird scooter']" [value]="v">
-                        {{ v | titlecase }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
+        <div class="row" *ngIf="f.value.type === 'Commander'">
+            <div class="col-md-6">
+                <mat-form-field>
+                    <mat-label>Vehicle</mat-label>
+                    <mat-select ngModel name="vehicle">
+                        <mat-option *ngFor="let v of vehicles" [value]="v">
+                            {{ v | titlecase }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
         </div>
-        <div *ngIf="f.value.type === 'Warrior'">
-            <mat-form-field>
-                <mat-label>Weapon</mat-label>
-                <mat-select ngModel name="weapon">
-                    <mat-option *ngFor="let w of ['Water gun', 'Pepper spray', 'Chopsticks']" [value]="w">
-                        {{ w | titlecase }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
+        <div class="row" *ngIf="f.value.type === 'Warrior'">
+            <div class="col-md-6">
+                <mat-form-field>
+                    <mat-label>Weapon</mat-label>
+                    <mat-select ngModel name="weapon">
+                        <mat-option *ngFor="let w of weapons" [value]="w">
+                            {{ w | titlecase }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
         </div>
-        <div *ngIf="f.value.type === 'Commander Chief'" >
-            <mat-form-field>
-                <mat-label>Vehicle</mat-label>
-                <mat-select ngModel name="vehicle">
-                    <mat-option *ngFor="let v of ['Bird scooter']" [value]="v">
-                        {{ v | titlecase }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
+        <div class="row" *ngIf="f.value.type === 'Commander Chief'">
+            <div class="col-md-5">
+                <mat-form-field>
+                    <mat-label>Vehicle</mat-label>
+                    <mat-select ngModel name="vehicle">
+                        <mat-option *ngFor="let v of vehicles" [value]="v">
+                            {{ v | titlecase }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field>
+                    <mat-label>Membership Card</mat-label>
+                    <mat-select ngModel name="vehicle">
+                        <mat-option *ngFor="let mc of membership_cards" [value]="mc">
+                            {{ mc | titlecase }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
         </div>
-
+        <div class="text-center mt-5">
+            <button class="button button--primary">Create</button>
+        </div>
     </form>
 </section>

@@ -1,11 +1,11 @@
 <section *ngIf="aliens">
     <div class="mb-5 mt-5 text-center">
-        <alien-list l-title="Alien Chief Commanders" [aliens]="aliens.chiefs" [columns]="columns.chiefs"></alien-list>
+        <alien-list l-title="Alien Chief Commanders" [aliens]="aliens['Chief Commander']" [columns]="columns.chiefs"></alien-list>
     </div>
     <div class="mb-5 mt-5">
-        <alien-list l-title="Alien Commanders" [aliens]="aliens.commanders" [columns]="columns.commanders"></alien-list>
+        <alien-list l-title="Alien Commanders" [aliens]="aliens.Commander" [columns]="columns.commanders"></alien-list>
     </div>
     <div class="mt-5">
-        <alien-list l-title="Alien Warriors" [aliens]="aliens.warriors" [columns]="columns.warriors"></alien-list>
+        <alien-list l-title="Alien Warriors" [aliens]="aliens.Warrior" [columns]="columns.warriors"></alien-list>
     </div>
 </section>

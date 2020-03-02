@@ -1,6 +1,7 @@
 // on this project, we are not particularly concerned
-// with CORS.
+// with CORS. so a simple allow all will suffice. edit the whitelist array to specify specific CORS destinations, or install the CORS library.
 
+//list of allowed addresses. ( * meaning everything is allowed ).
 const whitelist = ['*']
 
 module.exports = (req, res, next) => {

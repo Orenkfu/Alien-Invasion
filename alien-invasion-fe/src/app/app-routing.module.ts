@@ -6,6 +6,8 @@ import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
 import { AlienDashboardComponent } from './pages/alien-dashboard/alien-dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
 import { CreateAlienComponent } from './pages/create-alien/create-alien.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ReadmeComponent } from './pages/readme/readme.component';
 
 const routes: Routes = [
   {
@@ -24,8 +26,13 @@ const routes: Routes = [
     path: "members",
     component: MembersComponent,
     canActivateChild: [ AuthGuard ],
-    data: { title: "Home" },
+    data: { title: "Member Area" },
     children: [
+      {
+        path: "",
+        component: HomeComponent,
+        data: { title: "Home" }
+      },
       {
         path: "dashboard",
         component: AlienDashboardComponent,
@@ -35,6 +42,11 @@ const routes: Routes = [
         path: "create",
         component: CreateAlienComponent,
         data: { title: "Create Alien" }
+      },
+      {
+        path: "readme",
+        component: ReadmeComponent,
+        data: { title: "Readme" }
       }
     ]
   },

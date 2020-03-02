@@ -2,12 +2,14 @@
  *  This module is responsible for loading configuration
  *  and bootstrapping server dependencies
 */
-const cors = require('../Alien-Invasion/middleware/cors');
+const cors = require('../middleware/cors');
+const bodyParser = require('body-parser');
 /**
  * @param app ( Express )  
  */
 module.exports =  (app) => {
-    require('../Alien-Invasion/mongo');
-    app.use(cors)
-    app.use('/api', require('../Alien-Invasion/routes'));
+    require('./mongo');
+    app.use(bodyParser.json());
+    app.use(cors);
+    app.use('/api', require('../controllers/routes'));
 }

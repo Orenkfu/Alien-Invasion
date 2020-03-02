@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
 
+const types = [ 'Commander', 'Warrior', 'Chief Commander' ];
+const vehicles = ['Bird scooter', 'Merkava tank'];
+const weapons = [ 'Water gun', 'Pepper spray', 'Chopsticks' ];
+const cards = [ 'Hitech zone', 'Hever', 'Shufersal' ];
+
 const Alien = mongoose.model('Aliens', new mongoose.Schema({
     name:
     {
@@ -12,14 +17,14 @@ const Alien = mongoose.model('Aliens', new mongoose.Schema({
     type:
     {
         type: String,
-        enum: ['Commander', 'Warrior', 'Chief Commander'],
+        enum: types,
         required: true,
         trim: true,
     },
     weapon:
     {
         type: String,
-        enum: ['Water gun', 'Pepper spray', 'Chopsticks'],
+        enum: weapons,
         required: function () {
             return this.type === 'Warrior'
         }
@@ -27,7 +32,7 @@ const Alien = mongoose.model('Aliens', new mongoose.Schema({
     vehicle: 
     {
         type: String,
-        enum: ['Bird scooter', 'Merkava tank'],
+        enum: vehicles,
         required: function () {
             return this.type != "Warrior"
         } 
@@ -35,9 +40,9 @@ const Alien = mongoose.model('Aliens', new mongoose.Schema({
     membership_card: 
     {
         type: String,
-        enum: ['Hitech zone', 'Hever', 'Shufersal'],
+        enum: cards,
         required: function () {
-            return this.type === 'Commander'
+            return this.type === 'Commander Chief'
         }
     },
     parent: 
@@ -49,5 +54,8 @@ const Alien = mongoose.model('Aliens', new mongoose.Schema({
     }
 }));
 
-
+exports.vehicles = vehicles;
+exports.cards = cards;
+exports.weapons = weapons;
+exports.types = types;
 exports.Alien = Alien;

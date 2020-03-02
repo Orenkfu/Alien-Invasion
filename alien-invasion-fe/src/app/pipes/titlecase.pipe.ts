@@ -1,7 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
-
+/**
+ * Angular has a custom built in titlecase but I'm not a fan of the implementation - we'll make a new 'custom' titlecase pipe.
+ */
 @Pipe({
-  name: 'titlecase'
+  name: 'custom_titlecase'
 })
 export class TitlecasePipe implements PipeTransform {
   prepositions = [

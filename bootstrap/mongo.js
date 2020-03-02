@@ -1,10 +1,9 @@
 const config = require('./config');
 const mongoose = require('mongoose');
-console.log(config.mongo_url);
-mongoose.connect(config.mongo_url)
+mongoose.connect(config.mongo_url, {useUnifiedTopology: true, useNewUrlParser: true })
 .then(result => {
-    console.log(result);
+    console.log("Mongoose client successfully connected to database driver.");    
 })
 .catch((e) => {
-    console.log(`Failed to connect to Mongo DB; Error: ${e}`);
+    console.error(`Failed to connect to Mongo DB; Error: ${e}`);
 })

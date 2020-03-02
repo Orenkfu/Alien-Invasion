@@ -1,11 +1,15 @@
 @import "../../../scss/global-variables";
+//overriding material library default values
+.mat-form-field {
+    padding: 0 !important;
+}
 .form {
     &__title {
 
     }
     &__wrapper {
         border-radius: 5px;
-        margin:  20% 20%;
+        margin:  10% 20%;
         border: 2px $color-secondary solid;
         display: inline-block;
         padding: 5rem;

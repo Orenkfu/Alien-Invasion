@@ -9,9 +9,9 @@ import { AlienService } from 'src/app/services/alien.service';
 export class AlienDashboardComponent implements OnInit {
   
   columns = {
-    chiefs: ['id', 'name', 'vehicle'],
-    warriors: ['id', 'name', 'weapon', ],
-    commanders: ['id', 'name', 'vehicle', 'membership-card'],
+    chiefs: ['name', 'vehicle', 'membership_card'],
+    warriors: ['name', 'weapon', ],
+    commanders: ['name', 'vehicle'],
   }
   aliens;
   constructor(private alienService: AlienService) { }

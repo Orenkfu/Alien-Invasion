@@ -7,6 +7,9 @@ import { environment } from '../../environments/environment';
 export class AlienService {
   url = `${ environment.base_url }/aliens`
   constructor(private http: HttpClient) { }
+  createAlien (alien) {
+    return this.http.post(this.url, alien);
+  }
   getAliens() {
     return this.http.get(this.url);
   }

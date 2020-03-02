@@ -14,6 +14,10 @@ export class NavMenuComponent implements OnInit {
     {
       path: "/members/dashboard",
       text: "Alien Dashboard"
+    },
+    {
+      path: "/members/readme",
+      text: "Readme"
     }
   ]
   constructor() { }

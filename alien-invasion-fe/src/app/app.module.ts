@@ -23,6 +23,8 @@ import { AlienService } from './services/alien.service';
 import { AlienDashboardComponent } from './pages/alien-dashboard/alien-dashboard.component';
 import { TitlecasePipe } from './pipes/titlecase.pipe';
 import { CreateAlienComponent } from './pages/create-alien/create-alien.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ReadmeComponent } from './pages/readme/readme.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { CreateAlienComponent } from './pages/create-alien/create-alien.componen
     AlienDashboardComponent,
     TitlecasePipe,
     CreateAlienComponent,
+    HomeComponent,
+    ReadmeComponent,
   ],
   imports: [
     BrowserModule,

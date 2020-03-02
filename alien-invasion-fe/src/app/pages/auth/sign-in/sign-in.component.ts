@@ -11,7 +11,7 @@ export class SignInComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private userService: UserService) { }
   authenticate() {
       this.userService.loginWithGoogle().then(() => {
-        this.router.navigate(['character-creation'], { relativeTo: this.route })
+        this.router.navigate(['members'], { relativeTo: this.route })
       })
   }
   ngOnInit(): void {
