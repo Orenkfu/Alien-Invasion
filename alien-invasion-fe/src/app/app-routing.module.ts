@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MembersComponent } from './layout/members/members.component';
 import { AuthComponent } from './layout/auth/auth.component';
-import { CharacterCreationComponent } from './pages/auth/character-creation/character-creation.component';
 import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
 import { AlienDashboardComponent } from './pages/alien-dashboard/alien-dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
@@ -18,12 +17,6 @@ const routes: Routes = [
         path: "",
         component: SignInComponent,
         data: { title: "Sign In" }
-      },
-      {
-        path: "character-creation",
-        component: CharacterCreationComponent,
-        data: { title: "Create Character" }
-
       }
     ]
   },

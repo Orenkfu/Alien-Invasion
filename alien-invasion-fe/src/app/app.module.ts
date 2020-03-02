@@ -11,7 +11,6 @@ import { AuthComponent } from './layout/auth/auth.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavMenuComponent } from './sidebar/nav-menu/nav-menu.component';
-import { CharacterCreationComponent } from './pages/auth/character-creation/character-creation.component';
 import { SignInComponent } from './pages/auth/sign-in/sign-in.component';
 import { FormsModule } from '@angular/forms';
 import { AlienListComponent } from './pages/alien-dashboard/alien-list/alien-list.component';
@@ -32,7 +31,6 @@ import { CreateAlienComponent } from './pages/create-alien/create-alien.componen
     AuthComponent,
     SidebarComponent,
     NavMenuComponent,
-    CharacterCreationComponent,
     SignInComponent,
     AlienListComponent,
     AlienDashboardComponent,
