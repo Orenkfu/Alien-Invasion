@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'sidebar',
@@ -7,8 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public window: Window, registry: MatIconRegistry, sanitizer: DomSanitizer) {
+    registry.addSvgIcon("hamburger",
+    sanitizer.bypassSecurityTrustResourceUrl('../../../assets/hamburger.svg'));
+  }
+  isMobile() {
+    return this.window.innerWidth <= 767;
+  }
   ngOnInit(): void {
   }
 

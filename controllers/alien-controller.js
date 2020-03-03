@@ -12,6 +12,16 @@ module.exports.getAliensHashmap = async () => {
     }, {});
 }
 
+//these methods are redundant as is, but kept for layering application logic - when this application expands they will inevitable expand as well
+module.exports.getAliensByType = (type) => {
+    return db.getAliensByType(type);
+}
+module.exports.getAlienById = (id) => {
+    return db.getById(id);
+}
+module.exports.getByParent = (parent_id) => {
+    return db.getByParent(parent_id);
+}
 module.exports.createAlien = (alien_candidate) => {
 
     //TODO: validate received alien object before delegating creation to DAL

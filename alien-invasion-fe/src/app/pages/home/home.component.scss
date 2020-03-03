@@ -1,8 +1,10 @@
 .home {
     text-align: center;
     width: 70%;
-    padding: 5rem;
+    padding: 2rem;
     &__img {
+        margin: 0 auto;
+        max-width: 150%;
         opacity: 0.5;
 
         &__wrapper {
@@ -13,6 +15,9 @@
         
     }
     &__p {
+        margin-top: 6rem;
+        font-size: 1.2rem;
+        text-align: center;
         font-size: 2rem;
     }
 }

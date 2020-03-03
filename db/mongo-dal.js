@@ -16,12 +16,19 @@ module.exports.createAlien = (alien_template) => {
         });
 }
 
+module.exports.getByParent = (parent_id) => {
+    return Alien.find({
+        parent: parent_id
+    })
+}
+module.exports.getById = (id) => {
+    return Alien.findById(id);
+}
+
 module.exports.getAllAliens = () => {
     return Alien.find();
 }
-module.exports.removeAlien = (id) => {
-    //return Alien
-}
+
 module.exports.findAliensByType = (type) => {
     return Alien.find({
         type: type

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AlienService } from 'src/app/services/alien.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'alien-list',
@@ -7,11 +8,16 @@ import { AlienService } from 'src/app/services/alien.service';
   styleUrls: ['./alien-list.component.scss']
 })
 export class AlienListComponent implements OnInit {
+  @Input('items') items;
+  @Input('l-title') title;
   @Input('columns') columns;
-  @Input('aliens') aliens;
-  @Input('l-title') title;  
+  constructor(private router: Router) {}
   ngOnInit(): void {
 
+  }
+
+  navigateTo(alien) {
+    this.router.navigate(["members", "aliens", alien._id], { state: { data: alien } });
   }
 
 }

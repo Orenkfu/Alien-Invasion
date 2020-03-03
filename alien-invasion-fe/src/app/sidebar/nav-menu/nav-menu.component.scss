@@ -3,11 +3,18 @@
     &__item {
         padding: 2rem;
     }
-    color: $color-primary;
+   
     font-weight: 700;
     letter-spacing: 3px;
     height: 3rem;
     &--active {
         color: $color-primary-light;
     }
+}
+.icon {
+    margin-left: 1rem !important;
+    padding: 1rem;
+}
+a {
+    cursor: pointer;
 }

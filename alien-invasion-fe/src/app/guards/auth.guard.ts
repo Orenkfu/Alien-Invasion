@@ -8,15 +8,20 @@ import { UserService } from '../services/user.service';
 })
 export class AuthGuard implements CanActivate, CanActivateChild {
   constructor(private router: Router, private userService: UserService) { }
-  canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    if (this.userService.IsAuthenticated)
-      return true;
-    return this.router.parseUrl('');
+  async canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean | UrlTree> {
+    return true;
+    // return await this.validateAuth();
   }
-  canActivate(
+  async canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    console.log("Activate (auth guard)")
+    state: RouterStateSnapshot): Promise<boolean | UrlTree> {
+    return await this.validateAuth();
+  }
+  private async validateAuth() {
+    let user = await this.userService.getUser();
+    if (!user) {
+      return this.router.parseUrl('');
+    }
     return true;
   }
 

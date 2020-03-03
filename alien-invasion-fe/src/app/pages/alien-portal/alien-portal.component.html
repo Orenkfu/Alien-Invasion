@@ -1,0 +1,16 @@
+<section *ngIf="alien" class="portal">
+    <h2 class=" mb-5 text-center"> Magnifying glass for alien {{ alien.name }} </h2>
+    <br>
+    <p *ngFor="let prop of propKeys">
+        {{ prop | custom_titlecase }}: {{ alien[prop] }}
+    </p>
+    <alien-list l-title="Servants of {{alien.name}}" 
+    *ngIf="children; else noChildren" [columns]="getColumns(alien.type)" [items]="children">
+    </alien-list>
+    <ng-template #noChildren>
+        <span style="font-weight: bold;"> This alien does not have any servants.
+        </span>
+    </ng-template>
+    <br>
+    <button routerLink="/members/dashboard" class="button--icon"> &#x2190;  </button>
+</section>

@@ -1,7 +1,9 @@
-<ul>
-    <li class="route__item" *ngFor="let route of routes">
-        <a class="route" routerLinkActive="route--active" [routerLink]="route.path">
-            {{ route.text }}
-        </a>
-    </li>
-</ul>
+<nav>
+    <ul>
+        <li class="route__item" *ngFor="let route of routes">
+            <a class="route" routerLinkActive="route--active" [routerLink]="route.path">
+                {{ route.text }}
+            </a>
+        </li>
+    </ul>
+</nav>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase';
+import { map } from 'rxjs/operators';
 /**
  * For smaller apps, I prefer to use Firebase to handle
  * authentication and token validation for me. 
@@ -8,12 +9,12 @@ import { auth } from 'firebase';
  * token management and easily implement social 
  * signups on client side, no fuss.
  */
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   private userProfile;
-  private userCharacter;
   private user$;
   constructor(private fAuth: AngularFireAuth) {
     this.user$ = this.fAuth.user;
@@ -33,15 +34,10 @@ export class UserService {
     let provider = new auth.GoogleAuthProvider();
     let result = await this.fAuth.signInWithPopup(provider);
   }
-  get IsAuthenticated() {
-    return !!this.user$;
+  getUser() {
+    return this.fAuth.currentUser;
   }
-  get Character() {
-    return this.userCharacter
-  }
-  set Character(value) {
-    this.userCharacter = value;
-  }
+
   get Profile() {
     return this.userProfile;
   }

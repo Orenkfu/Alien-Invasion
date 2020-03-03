@@ -1,15 +1,14 @@
 <div class="alien-list__wrapper">
-
     <h3 class="heading-secondary alien-list__title">
         {{title}}
     </h3>
-    <table mat-table [dataSource]="aliens" class="alien-list mat-elevation-z8"> 
-        <ng-container class="alien-list__row" *ngFor="let col of columns" [matColumnDef]="col">
-            <th class="alien-list__header" mat-header-cell *matHeaderCellDef> {{ col | custom_titlecase }} </th>
-            <td class="alien-list__cell" mat-cell *matCellDef="let data"> {{ data[col] }} </td>
+    <table mat-table [dataSource]="items" class="alien-list mat-elevation-z8"> 
+        <ng-container class="alien-list__row" *ngFor="let col of columns"
+        [matColumnDef]="col">
+            <th class="alien-list__header" mat-header-cell *matHeaderCellDef>
+                 {{ col | custom_titlecase }} </th>
+            <td class="alien-list__cell" mat-cell *matCellDef="let data"> <a (click)="navigateTo(data)"> {{ data[col] }} </a> </td>
         </ng-container>
-        
-        
         <tr mat-header-row *matHeaderRowDef="columns"></tr>
         <tr mat-row *matRowDef="let row; columns: columns;"></tr>
     </table>

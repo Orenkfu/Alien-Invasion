@@ -8,6 +8,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { CreateAlienComponent } from './pages/create-alien/create-alien.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ReadmeComponent } from './pages/readme/readme.component';
+import { AlienPortalComponent } from './pages/alien-portal/alien-portal.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,11 @@ const routes: Routes = [
         path: "",
         component: HomeComponent,
         data: { title: "Home" }
+      },
+      {
+        path: "aliens/:id",
+        component: AlienPortalComponent,
+        data: { title: "Alien Closer Look" }
       },
       {
         path: "dashboard",

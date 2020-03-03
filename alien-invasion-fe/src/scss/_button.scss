@@ -11,44 +11,28 @@
     font-weight: 700;
     
     &:hover {
-    transform: translateY(-.2rem);
-    box-shadow: 0 1rem 2rem rgba($color-black,.4);
+        transform: translateY(-.2rem);
+        box-shadow: 0 1rem 2rem rgba($color-black,.4);
+        
+    }
+    &:disabled {
+        color: red;
+        border-color: black;
+        background-color: darken($color-primary-light, 30);
+        transform: 0;
+        box-shadow: none;
+  
     }
     &:active {
     transform: translateY(0rem);
     }
-    &--white {
-    background-color: $color-white;
-    color:$color-grey-dark;
-    }
-    &--green {
-    background-color: $color-primary;
-    color:$color-black;   
+    &--icon {
+        border: none;
+        background-color: transparent;
+        font-size: 2rem;
     }
     &--animated {
     animation: moveInBottom .5s ease-out .75s;
     animation-fill-mode: backwards;
-    }
-}
-.btn-text {
-    &:link,
-    &:visited {
-        font-size: $default-font-size;
-        color: $color-primary;
-        display: inline-block;
-        border-bottom: 1px solid $color-primary;
-        padding: 1rem;
-        transition: all;
-    }
-    &:hover {
-        background-color: $color-primary;
-        color: $color-white;
-        box-shadow: 0 1rem 1rem rgba($color-black, 0.5);
-        transform: translateY(-4px);
-    }
-    &:active {
-        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.5);
-        transform: translateY(0px);
-    
     }
 }

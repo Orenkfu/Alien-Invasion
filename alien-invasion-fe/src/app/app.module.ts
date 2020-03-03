@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -25,6 +26,7 @@ import { TitlecasePipe } from './pipes/titlecase.pipe';
 import { CreateAlienComponent } from './pages/create-alien/create-alien.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ReadmeComponent } from './pages/readme/readme.component';
+import { AlienPortalComponent } from './pages/alien-portal/alien-portal.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { ReadmeComponent } from './pages/readme/readme.component';
     CreateAlienComponent,
     HomeComponent,
     ReadmeComponent,
+    AlienPortalComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,13 +51,14 @@ import { ReadmeComponent } from './pages/readme/readme.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatSelectModule,
+    MatIconModule,
     MatTableModule,
     MatInputModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     MatSidenavModule,
   ],
-  providers: [ UserService, AlienService ],
+  providers: [ UserService, AlienService, { provide: Window, useValue: window } ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

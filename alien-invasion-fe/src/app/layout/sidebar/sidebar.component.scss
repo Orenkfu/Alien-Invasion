@@ -2,6 +2,7 @@
 .sidebar {
 
     &__content {
+        background-color: $color-primary;
     }
     &__drawer {
         border-right: 2px $color-white solid;

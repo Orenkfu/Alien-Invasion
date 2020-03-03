@@ -12,13 +12,13 @@
             <div class="col-md-5">
                 <mat-form-field class="form__field">
                     <mat-label>Name</mat-label>
-                    <input matInput ngModel name="name" placeholder="Ex. Plutonius Maximus">
+                    <input required matInput ngModel name="name" placeholder="Ex. Plutonius Maximus">
                 </mat-form-field>
             </div>
             <div class="col-md-6">
                 <mat-form-field>
                     <mat-label>Alien Type</mat-label>
-                    <mat-select [(ngModel)]="type" name="type">
+                    <mat-select required [(ngModel)]="type" name="type">
                         <mat-option *ngFor="let a of alienTypes" [value]="a">
                             {{ a | titlecase }}
                         </mat-option>
@@ -30,7 +30,7 @@
             <div class="col-md-6">
                 <mat-form-field>
                     <mat-label>Vehicle</mat-label>
-                    <mat-select ngModel name="vehicle">
+                    <mat-select required ngModel name="vehicle">
                         <mat-option *ngFor="let v of vehicles" [value]="v">
                             {{ v | titlecase }}
                         </mat-option>
@@ -42,7 +42,7 @@
             <div class="col-md-6">
                 <mat-form-field>
                     <mat-label>Weapon</mat-label>
-                    <mat-select ngModel name="weapon">
+                    <mat-select required ngModel name="weapon">
                         <mat-option *ngFor="let w of weapons" [value]="w">
                             {{ w | titlecase }}
                         </mat-option>
@@ -54,7 +54,7 @@
             <div class="col-md-5">
                 <mat-form-field>
                     <mat-label>Vehicle</mat-label>
-                    <mat-select ngModel name="vehicle">
+                    <mat-select required ngModel name="vehicle">
                         <mat-option *ngFor="let v of vehicles" [value]="v">
                             {{ v | titlecase }}
                         </mat-option>
@@ -64,7 +64,7 @@
             <div class="col-md-6">
                 <mat-form-field>
                     <mat-label>Membership Card</mat-label>
-                    <mat-select ngModel name="vehicle">
+                    <mat-select required ngModel name="membership_card">
                         <mat-option *ngFor="let mc of membership_cards" [value]="mc">
                             {{ mc | titlecase }}
                         </mat-option>
@@ -72,8 +72,20 @@
                 </mat-form-field>
             </div>
         </div>
+        <div class="row" *ngIf="aliens && f.value.type !== 'Commander Chief'">
+            <div class="col-md-5">
+                <mat-form-field>
+                    <mat-label>Serves Under</mat-label>
+                    <mat-select required ngModel name="parent">
+                        <mat-option *ngFor="let a of aliens[getParent(f.value.type)]" [value]="a._id">
+                            {{ a.name | titlecase }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
         <div class="text-center mt-5">
-            <button class="button button--primary">Create</button>
+            <button [disabled]="f.invalid" class="button button--primary">Create</button>
         </div>
     </form>
 </section>

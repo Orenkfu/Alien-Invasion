@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlienService } from 'src/app/services/alien.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-alien',
@@ -14,17 +15,30 @@ export class CreateAlienComponent implements OnInit {
   membership_cards = ['Shufersal', 'Hever', 'Hitech zone'];
   vehicles = ['Bird scooter', 'Merkava tank'];
   alienTypes = ['Warrior', 'Commander', 'Commander Chief'];
-
+  parentDictionary = {
+    "Warrior": 'Commander',
+    "Commander": 'Commander Chief',
+    "Commander Chief": null
+  }
   //Default value - this property is two-way bound to the form "type" property, and will alter the form based on its' state.
   type = "Warrior";
-
-  constructor(private alienService: AlienService) { }
-
+  aliens: any;
+  public set Type(value) {
+    console.log(this.type);
+    this.type = value;
+  }
+  constructor(private alienService: AlienService, private router: Router) {
+    alienService.getAliens().subscribe(res => {
+      this.aliens = res;
+    })
+  }
+  getParent(type) {
+    return this.parentDictionary[type];
+  }
 
   create (alien) {
-    console.log("Creating alien ", alien);
     this.alienService.createAlien(alien).subscribe(result => {
-      console.log(result);
+      this.router.navigate(["members", "dashboard"]);
     })
   }
 

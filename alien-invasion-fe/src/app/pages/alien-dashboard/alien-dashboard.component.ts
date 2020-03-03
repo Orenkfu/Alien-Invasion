@@ -8,12 +8,9 @@ import { AlienService } from 'src/app/services/alien.service';
 })
 export class AlienDashboardComponent implements OnInit {
   
-  columns = {
-    chiefs: ['name', 'vehicle', 'membership_card'],
-    warriors: ['name', 'weapon', ],
-    commanders: ['name', 'vehicle'],
-  }
+
   aliens;
+
   constructor(private alienService: AlienService) { }
   ngOnInit(): void {
     this.alienService.getAliens().subscribe(res => {
@@ -21,5 +18,7 @@ export class AlienDashboardComponent implements OnInit {
       console.log(this.aliens);
     });
   }
-
+  getCol (type) {
+    return this.alienService.getListColumns(type);
+  }
 }

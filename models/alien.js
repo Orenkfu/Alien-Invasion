@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const types = [ 'Commander', 'Warrior', 'Chief Commander' ];
+const types = [ 'Commander', 'Warrior', 'Commander Chief' ];
 const vehicles = ['Bird scooter', 'Merkava tank'];
 const weapons = [ 'Water gun', 'Pepper spray', 'Chopsticks' ];
 const cards = [ 'Hitech zone', 'Hever', 'Shufersal' ];
@@ -48,9 +48,9 @@ const Alien = mongoose.model('Aliens', new mongoose.Schema({
     parent: 
     {
         type: mongoose.Schema.ObjectId,
-        /*required: function () {
-            return this.type !== 'Chief Commander'
-        }*/
+        required: function () {
+            return this.type !== 'Commander Chief'
+        }
     }
 }));
 
